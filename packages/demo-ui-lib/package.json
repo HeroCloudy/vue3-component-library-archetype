@@ -1,0 +1,19 @@
+{
+  "name": "@demo-ui-lib/demo-ui-lib",
+  "version": "1.0.0",
+  "description": "组件库",
+  "main": "index.ts",
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@demo-ui-lib/foo": "workspace:^1.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^2.1.0",
+    "vite-plugin-dts": "^1.6.6"
+  }
+}

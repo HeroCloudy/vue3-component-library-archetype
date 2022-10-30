@@ -1,0 +1,149 @@
+/// BEM
+/// @access public
+/// @author Marcmintel
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+
+$elementSeparator: '__';
+
+$modifierSeparator: '--';
+
+/// 判断`$selector`中是否包含BEM中Modify
+/// @access private
+/// @param  {String}  $selector
+/// @return {Boolean} `true` or `false`
+
+@function containsModifier($selector) {
+    $selector: selectorToString($selector);
+    @if str-index($selector, $modifierSeparator) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+/// 将`$selector`转换成String
+/// @access private
+/// @param  {String}  $selector
+/// @return {String}  $selector
+@function selectorToString($selector) {
+    $selector: inspect($selector); //cast to string
+    $selector: str-slice($selector, 2, -2); //remove brackets
+    @return $selector;
+}
+
+/// @param  {String}  $selector
+/// @access private
+/// @return {String}
+@function getBlock($selector) {
+    $selector: selectorToString($selector);
+    $modifierStart: str-index($selector, $modifierSeparator) - 1;
+    @return str-slice($selector, 0, $modifierStart);
+}
+
+/// @param {string} $block - BEM中的Block
+/// @content
+/// @example
+///  //SCSS
+///  @include b(block) {
+///     background: red;
+///     @include e(header){
+///         font-size: 14px;
+///
+///         @include m(css) {
+///             font-size: 18px;
+///         }
+///     };
+///  }
+///  //CSS
+///  .block {
+///      background: red;
+///  }
+///  .block__header {
+///     font-size: 14px;
+///  }
+///  .block__header--css {
+///     font-size: 18px;
+///  }
+
+@mixin b($block) {
+    .#{$block} {
+        @content;
+    }
+}
+
+/// @param {string} $element - BEM中的Element
+/// @content
+/// @example
+///  //SCSS
+///  @include b(block) {
+///     background: red;
+///     @include e(header){
+///         font-size: 14px;
+///
+///         @include m(css) {
+///             font-size: 18px;
+///         }
+///     };
+///  }
+///  //CSS
+///  .block {
+///      background: red;
+///  }
+///  .block__header {
+///     font-size: 14px;
+///  }
+///  .block__header--css {
+///     font-size: 18px;
+///  }
+@mixin e($element) {
+    $selector: &;
+    @if containsModifier($selector) {
+        $block: getBlock($selector);
+        @at-root {
+            #{$selector} {
+                #{$block+$elementSeparator+$element} {
+                    @content;
+                }
+            }
+        }
+    } @else {
+        @at-root {
+            #{$selector+$elementSeparator+$element} {
+                @content;
+            }
+        }
+    }
+}
+
+/// @param {string} $element - BEM中的Modify
+/// @content
+/// @example
+///  //SCSS
+///  @include b(block) {
+///     background: red;
+///     @include e(header){
+///         font-size: 14px;
+///
+///         @include m(css) {
+///             font-size: 18px;
+///         }
+///     };
+///  }
+///  //CSS
+///  .block {
+///      background: red;
+///  }
+///  .block__header {
+///     font-size: 14px;
+///  }
+///  .block__header--css {
+///     font-size: 18px;
+///  }
+@mixin m($modifier) {
+    @at-root {
+        #{&}#{$modifierSeparator+$modifier} {
+            @content;
+        }
+    }
+}
+

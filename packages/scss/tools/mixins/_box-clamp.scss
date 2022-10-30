@@ -1,0 +1,51 @@
+/// 控制文字行数溢出点点点
+/// @param  {number} $lines      [1] - 默认一行对于点点点结束
+/// @param  {number} $substract  [0] - 默认宽度为100% - 0
+/// @example
+///
+/// //SCSS
+/// div {
+/// 	@include ellipsis;
+/// }
+///
+///	.box {
+/// 	@include ellipsis(3);
+///	}
+///	//CSS
+///	div {
+///	  overflow: hidden;
+///	  display: -webkit-box;
+///	  display: box;
+///	  -webkit-line-clamp: 1;
+///	  line-clamp: 1;
+///	  -webkit-box-orient: vertical;
+///	  box-orient: vertical;
+///	}
+///
+///	.box {
+///	  overflow: hidden;
+///	  display: -webkit-box;
+///	  display: box;
+///	  -webkit-line-clamp: 3;
+///	  line-clamp: 3;
+///	  -webkit-box-orient: vertical;
+///	  box-orient: vertical;
+///	}
+///
+
+@mixin ellipsis($lines: 1, $substract: 0) {
+    @if $lines == 1 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100% - $substract;
+    	overflow: hidden;
+    } @else {
+        overflow:hidden;
+	    display:-webkit-box;
+	    display:flex;
+	    -webkit-line-clamp: $lines;
+	    line-clamp: $lines;
+	    -webkit-box-orient: vertical;
+	    box-orient: vertical;
+    }
+}

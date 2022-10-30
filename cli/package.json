@@ -1,0 +1,26 @@
+{
+  "name": "@demo-ui-lib/cli",
+  "version": "1.0.0",
+  "description": "组件库命令行工具",
+  "bin": {
+    "yygcreate": "./index.ts"
+  },
+  "scripts": {
+    "gen": "ts-node ./index.ts create"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "4.1.2",
+    "commander": "^9.4.1",
+    "inquirer": "8.2.5",
+    "log-symbols": "4.1.0",
+    "ora": "5.4.1",
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.7"
+  }
+}

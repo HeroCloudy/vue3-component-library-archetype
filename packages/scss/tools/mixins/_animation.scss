@@ -1,0 +1,96 @@
+/// CSS Animation设置
+/// @access public
+/// @param {map} $options
+/// @param {string} $name [unique-id()] - 随机生成的animation-name
+/// @param {number} $duration [1] - animation-duration
+/// @param {number} $waitTime [0] - animation-delay
+/// @param {string} $timingFunction [linear] - animation-timing-function
+/// @param {string | number} $iterationCount [infinite] - animation-iteration-count
+/// @example
+/// 
+/// //SCSS
+/// .anime {
+///    @include animation(
+///        (
+///            animationName: zoom,
+///            keyframes: (
+///                0: (
+///                    transform: scale(1),
+///                    background-color: blue
+///                ),
+///                100: (
+///                    transform: scale(3),
+///                    background-color: red
+///                )
+///            ),
+///            duration: 2,
+///            waitTime: 1,
+///            timingFunction: ease,
+///            iterationCount: infinite
+///      )
+///    );
+/// }
+/// 
+/// //CSS
+///     .anime {
+///         animation: zoom 2s ease 1s infinite;
+///     }
+///     @keyframes zoom {
+///         0% {
+///             transform: scale(1);
+///             background-color: blue;
+///         }
+///         66.66666667% {
+///             transform: scale(3);
+///             background-color: red;
+///         }
+///         100% {
+///             transform: scale(3);
+///             background-color: red;
+///         }
+///     }
+/// 
+/// @link http://www.w3cplus.com/preprocessor/sass-animation-keyframes.html
+/// @author 大漠
+
+@mixin animation($options: ()) {
+    $options: map-merge(( 
+    	animationName: unique-id(), 
+    	duration: 1, 
+    	waitTime: 0, 
+    	timingFunction: linear, 
+    	iterationCount: infinite
+    ), $options);
+    $name: map-get($options, animationName);
+    $kf: map-get($options, keyframes);
+    $kfLength: length($kf);
+    $duration: map-get($options, duration);
+    $waitTime: map-get($options, waitTime);
+    $timingFunction: map-get($options, timingFunction);
+    $iterationCount: map-get($options, iterationCount);
+    $counter: 1; // index of 'each'
+    @keyframes #{$name} {
+        @each $frame,
+        $prop in $kf {
+            #{$frame * $duration / ($duration + $waitTime)}% {
+                @each $k,
+                $v in $prop {
+                    #{$k}: #{$v}
+                }
+            }
+            // if last in loop and waitTime is not 0, add the last frame as 100% (this is what creates the pause)
+            @if $counter==$kfLength and $waitTime > 0 {
+                100% {
+                    @each $k,
+                    $v in $prop {
+                        #{$k}: #{$v}
+                    }
+                }
+            }
+            $counter: $counter+1;
+        }
+    }
+    animation: #{$name} #{$duration}s #{$timingFunction} #{$waitTime}s #{$iterationCount};
+}
+
+

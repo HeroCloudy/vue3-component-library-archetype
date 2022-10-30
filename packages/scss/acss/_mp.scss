@@ -1,0 +1,56 @@
+$direction: (l left, r right, t top, b bottom);
+
+@for $i from 1 through 30 {
+  @each $type in m, p, v, h, a {
+
+    // margin
+    @if ($type == m) {
+      @each $d in $direction {
+        .m#{nth($d, 1)}-#{$i} {
+          margin-#{nth($d, 2)}: #{$i}px;
+        }
+      }
+    }
+
+      // padding
+    @else if ($type == p) {
+      @each $d in $direction {
+        .p#{nth($d, 1)}-#{$i} {
+          padding-#{nth($d, 2)}: #{$i}px;
+        }
+      }
+    }
+      // margin/padding left/right
+    @else if ($type == h) {
+      .ph-#{$i} {
+        padding-left: #{$i}px;
+        padding-right: #{$i}px;
+      }
+
+      .mh-#{$i} {
+        margin-left: #{$i}px;
+        margin-right: #{$i}px;
+      }
+    }
+      // margin/padding top/bottom
+    @else if ($type == v) {
+      .mv-#{$i} {
+        margin-top: #{$i}px;
+        margin-bottom: #{$i}px;
+      }
+
+      .pv-#{$i} {
+        padding-top: #{$i}px;
+        padding-bottom: #{$i}px;
+      }
+    }
+
+      // all
+    @else {
+      .pa-#{$i} {
+        padding: #{$i}px;
+      }
+    }
+
+  }
+}

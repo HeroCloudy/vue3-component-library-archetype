@@ -1,0 +1,299 @@
+//  Licensed under a MIT License
+//  Version:
+//  1.6.1
+
+/// Sass Media Queries
+/// @param {list} $args...
+/// @link http://rafalbromirski.com/
+/// @link http://github.com/paranoida/sass-mediaqueries
+/// @author Rafal Bromirski
+
+@mixin mq($args...) {
+  $media-type: 'only screen';
+  $media-type-key: 'media-type';
+  $args: keywords($args);
+  $expr: '';
+
+  @if map-has-key($args, $media-type-key) {
+    $media-type: map-get($args, $media-type-key);
+    $args: map-remove($args, $media-type-key);
+  }
+
+  @each $key, $value in $args {
+    @if $value {
+      $expr: "#{$expr} and (#{$key}: #{$value})";
+    }
+  }
+
+  @media #{$media-type} #{$expr} {
+    @content;
+  }
+}
+
+/// Media Queries for screen
+/// @param {string} $min
+/// @param {string} $max
+/// @param {boolean} $orientation [false]
+
+@mixin screen($min, $max, $orientation: false) {
+  @include mq($min-width: $min, $max-width: $max, $orientation: $orientation) {
+    @content;
+  }
+}
+
+/// Media Queries for max screen
+/// @param {string} $max
+@mixin max-screen($max) {
+  @include mq($max-width: $max) {
+    @content;
+  }
+}
+
+
+/// Media Queries for min screen
+/// @param {string} $min
+@mixin min-screen($min) {
+  @include mq($min-width: $min) {
+    @content;
+  }
+}
+
+/// Media Queries for screen height
+/// @param {string} $min
+/// @param {string} $max
+/// @param {boolean} $orientation [false]
+@mixin screen-height($min, $max, $orientation: false) {
+  @include mq($min-height: $min, $max-height: $max, $orientation: $orientation) {
+    @content;
+  }
+}
+
+/// Media Queries for max screen height
+/// @param {string} $max
+@mixin max-screen-height($max) {
+  @include mq($max-height: $max) {
+    @content;
+  }
+}
+
+/// Media Queries for min screen height
+/// @param {string} $min
+@mixin min-screen-height($min) {
+  @include mq($min-height: $min) {
+    @content;
+  }
+}
+
+/// Media Queries for hdpi
+/// @param {number} $ratio [1.3]
+@mixin hdpi($ratio: 1.3) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+  only screen and (min-resolution: #{round($ratio*96)}dpi) {
+    @content;
+  }
+}
+
+/// Media Queries for hdtv
+/// @param {number} $standard [1080]
+@mixin hdtv($standard: '1080') {
+  $min-width: false;
+  $min-height: false;
+
+  $standards: ('720p', 1280px, 720px)
+              ('1080', 1920px, 1080px)
+              ('2K', 2048px, 1080px)
+              ('4K', 4096px, 2160px);
+
+  @each $s in $standards {
+    @if $standard == nth($s, 1) {
+      $min-width: nth($s, 2);
+      $min-height: nth($s, 3);
+    }
+  }
+
+  @include mq(
+    $min-device-width: $min-width,
+    $min-device-height: $min-height,
+    $min-width: $min-width,
+    $min-height: $min-height
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for iPhone4
+/// @param {boolean} $orientation [false]
+@mixin iphone4($orientation: false) {
+  $min: 320px;
+  $max: 480px;
+  $pixel-ratio: 2;
+  $aspect-ratio: '2/3';
+
+  @include mq(
+    $min-device-width: $min,
+    $max-device-width: $max,
+    $orientation: $orientation,
+    $device-aspect-ratio: $aspect-ratio,
+    $-webkit-device-pixel-ratio: $pixel-ratio
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for iPhone5
+/// @param {boolean} $orientation [false]
+@mixin iphone5($orientation: false) {
+  $min: 320px;
+  $max: 568px;
+  $pixel-ratio: 2;
+  $aspect-ratio: '40/71';
+
+  @include mq(
+    $min-device-width: $min,
+    $max-device-width: $max,
+    $orientation: $orientation,
+    $device-aspect-ratio: $aspect-ratio,
+    $-webkit-device-pixel-ratio: $pixel-ratio
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for iPhone6
+/// @param {boolean} $orientation [false]
+@mixin iphone6($orientation: false) {
+  $min: 375px;
+  $max: 667px;
+  $pixel-ratio: 2;
+
+  @include mq(
+    $min-device-width: $min,
+    $max-device-width: $max,
+    $orientation: $orientation,
+    $-webkit-device-pixel-ratio: $pixel-ratio
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for iPhone6 Plus
+/// @param {boolean} $orientation [false]
+@mixin iphone6-plus($orientation: false) {
+  $min: 414px;
+  $max: 736px;
+  $pixel-ratio: 3;
+
+  @include mq(
+    $min-device-width: $min,
+    $max-device-width: $max,
+    $orientation: $orientation,
+    $-webkit-device-pixel-ratio: $pixel-ratio
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for iPad All
+/// @param {boolean} $orientation [false]
+@mixin ipad($orientation: false) {
+  $min: 768px;
+  $max: 1024px;
+
+  @include mq(
+    $min-device-width: $min,
+    $max-device-width: $max,
+    $orientation: $orientation
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for iPad (Retina)
+/// @param {boolean} $orientation [false]
+@mixin ipad-retina($orientation: false) {
+  $min: 768px;
+  $max: 1024px;
+  $pixel-ratio: 2;
+
+  @include mq(
+    $min-device-width: $min,
+    $max-device-width: $max,
+    $orientation: $orientation,
+    $-webkit-device-pixel-ratio: $pixel-ratio
+  ) {
+    @content;
+  }
+}
+
+/// Media Queries for orientation
+@mixin landscape() {
+  @include mq($orientation: landscape) {
+    @content;
+  }
+}
+
+/// Media Queries for portrait
+@mixin portrait() {
+  @include mq($orientation: portrait) {
+    @content;
+  }
+}
+
+/// Media queries with Sass Maps
+/// @param {String} $qtype
+/// @example
+/// //SCSS
+/// @include media-queries( large ) {
+///  h1 {
+///    font-size: 2rem;
+///  }
+/// }
+/// // CSS
+/// @media screen and (min-width: 50rem) and (max-width: 80rem) and (-webkit-min-device-pixel-ratio: 1) {
+///  h1 {
+///    font-size: 2rem;
+///  }
+/// }
+@mixin media-queries( $qtype ) {
+  $value: screen;
+  $breakpoints: (
+    // smartphones, portrait iPhone, portrait 480x320 phones (Android)
+    // font-size of root is 16px
+    ( phone-portrait,     20rem,   30rem,   1),
+    // smartphones, portrait iPhone, portrait 480x320 phones (Android)
+    ( phone-portrait-r,   20rem,   30rem,   2),
+    // smartphones, Android phones, landscape iPhone
+    ( phone-landscape,    30rem,   37.5rem, 1 ),
+    // smartphones, Android phones, landscape iPhone
+    ( phone-landscape-r,  30rem,   37.5rem, 2 ),
+    // portrait tablets, portrait iPad, e-readers (Nook/Kindle), 
+    // landscape 800x480 phones (Android)
+    ( table-portrait,     37.5rem, 50rem,   1 ),
+    // portrait tablets, portrait iPad, e-readers (Nook/Kindle), 
+    // landscape 800x480 phones (Android)
+    ( table-portrait-r,   37.5rem, 50rem,   2 ),
+    // tablet, landscape iPad, lo-res laptops ands desktops
+    ( table-landscape,    50rem,   64rem,   1),
+    // tablet, landscape iPad, lo-res laptops ands desktops
+    ( table-landscape-r,  50rem,   64rem,   2),
+    // big landscape tablets, laptops, and desktops
+    ( large,              50rem,   80rem,   1),
+    // big landscape tablets, laptops, and desktops
+    ( large-r,            50rem,   80rem,   2),
+    // hi-res laptops and desktops
+    ( xlarge,             80rem,   100rem,  1),
+    // hi-res laptops and desktops
+    ( xlarge-r,           80rem,   100rem,  2)
+  );
+
+  @each $item in $breakpoints {
+    @if $qtype == nth($item, 1) {
+
+    @media #{$value} and (min-width: nth($item, 2))
+      and (max-width: nth($item, 3))
+      and (-webkit-min-device-pixel-ratio: nth($item, 4)) {
+        @content;
+      }
+    }
+  }
+}

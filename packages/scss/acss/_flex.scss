@@ -1,0 +1,33 @@
+.f {
+  display: flex;
+}
+
+.f-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-r {
+  display: flex;
+  flex-direction: row;
+}
+
+.f-1 {
+  flex: 1 1 0;
+}
+
+.oy-h {
+  overflow-y: hidden;
+}
+
+.oy-a {
+  overflow-y: auto !important;
+}
+
+.ox-h {
+  overflow-x: hidden;
+}
+
+.o-h {
+  overflow: hidden;
+}

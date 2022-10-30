@@ -1,0 +1,12 @@
+{
+  "name": "@demo-ui-lib/foo",
+  "version": "1.0.0",
+  "description": "测试组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
