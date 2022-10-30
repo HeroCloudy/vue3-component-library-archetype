@@ -7,9 +7,5 @@ export default defineConfig({
   ],
   server: {
     port: 3100
-  },
-  build: {
-    // outDir: path.resolve(__dirname, '../dist-docs')
-    outDir: '../dist-docs'
   }
 })

@@ -4,7 +4,7 @@ import { components } from '../components'
 
 const nav: DefaultTheme.NavItem[] = [
   { text: '指南', link: '/guide/' },
-  { text: '组件', link: '/components/basic-component1' }
+  { text: '组件', link: '/components/foo' }
 ]
 
 const sidebar: DefaultTheme.Sidebar = {
@@ -17,14 +17,11 @@ const sidebar: DefaultTheme.Sidebar = {
       ]
     }
   ],
-  '/components': [
-    {
-      text: '通用基础组件',
-      items: [
-        ...components
-      ]
-    }
-  ]
+  '/components': [{
+    items: [
+      ...components
+    ]
+  }]
 }
 
 export default defineConfig({
@@ -34,7 +31,7 @@ export default defineConfig({
   base: '/',
   lastUpdated: true,
   themeConfig: {
-    logo: '/vite.svg',
+    logo: '/logo.png',
     siteTitle: '组件库标题',
     outline: 3,
     socialLinks: [

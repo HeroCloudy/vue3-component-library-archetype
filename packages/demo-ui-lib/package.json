@@ -7,7 +7,7 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "keywords": [],
-  "author": "",
+  "author": "程序员优雅哥",
   "license": "ISC",
   "dependencies": {
     "@demo-ui-lib/foo": "workspace:^1.0.0"

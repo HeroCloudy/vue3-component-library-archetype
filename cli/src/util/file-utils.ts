@@ -1,20 +1,6 @@
 import fs from 'fs'
 import { getCamelName, prefix } from './name-utils'
-// import { getCamelName } from './name-utils'
-// const handlebars = require('handlebars')
-//
-// const writeFile = (fileName, data) => {
-//   if (fs.existsSync(fileName)) {
-//     const content = fs.readFileSync(fileName).toString()
-//     const result = handlebars.compile(content)(data)
-//     fs.writeFileSync(fileName, result)
-//   }
-// }
-//
-// const createDir = (dir) => {
-//   fs.mkdirSync(dir)
-// }
-//
+
 export const replaceData = (fileName: string, replaceList: any) => {
   console.log(JSON.stringify(replaceList))
   if (fs.existsSync(fileName)) {
@@ -28,7 +14,6 @@ export const replaceData = (fileName: string, replaceList: any) => {
 }
 
 export const createSrcIndex = (filename: string, componentName: string, componentType: string) => {
-  // const camelName = getCamelName(componentName)
   const componentNameWithPrefix = `${prefix}-${componentName}`
   let content = ''
   if (componentType === 'vue') {
@@ -179,10 +164,3 @@ export const updateDocConfig = (fileName: string, componentName: string, descrip
     content.substring(index)
   fs.writeFileSync(fileName, result)
 }
-// module.exports = {
-//   writeFile,
-//   createDir,
-//   replaceData,
-//   createSrcIndex,
-//   createIndex
-// }

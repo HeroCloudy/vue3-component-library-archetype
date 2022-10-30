@@ -2,14 +2,10 @@
   "name": "@demo-ui-lib/cli",
   "version": "1.0.0",
   "description": "组件库命令行工具",
-  "bin": {
-    "yygcreate": "./index.ts"
-  },
   "scripts": {
     "gen": "ts-node ./index.ts create"
   },
-  "keywords": [],
-  "author": "",
+  "author": "程序员优雅哥",
   "license": "ISC",
   "devDependencies": {
     "chalk": "4.1.2",

@@ -3,7 +3,7 @@ import { g } from './util/log-utils'
 import { createComponent } from './command/create-component'
 
 export const mainEntry = () => {
-  g('hello cli!', false)
+  g('hello cli! made by 程序员优雅哥', false)
 
   program.version(require('../package').version)
     .usage('<command> [arguments]')

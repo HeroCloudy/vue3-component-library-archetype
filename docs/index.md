@@ -7,10 +7,10 @@ editLink: true
 lastUpdated: true
 hero:
   name: 组件库名称
-  text: 组件库文本
-  tagline: 组件库副标题描述
+  text: 组件库中文名称
+  tagline: 组件库描述 / SLOGAN
   image:
-    src: /vite.svg
+    src: /logo.png
     alt: YYG Admin UI
   actions:
     - theme: brand
@@ -18,7 +18,7 @@ hero:
       link: /guide/
     - theme: alt
       text: 组件
-      link: /components/
+      link: /components/foo
 features:
   - icon: 🔨
     title: 功能/特点 1

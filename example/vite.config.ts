@@ -31,6 +31,6 @@ export default defineConfig({
   },
   envDir: path.resolve(__dirname, 'env'),
   build: {
-    outDir: path.resolve(__dirname, '../dist-example')
+    outDir: path.resolve(__dirname, '../dist')
   }
 })
