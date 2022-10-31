@@ -8,7 +8,7 @@ const components = [
 ] // components
 
 // 全局动态添加组件
-const lib: Plugin = {
+const lib = {
   install (app: App) {
     components.forEach(component => {
       app.component(component.name, component)
