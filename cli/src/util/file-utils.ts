@@ -60,10 +60,10 @@ export const createIndex = (filename: string, componentName: string, componentTy
   const camelName = getCamelName(componentName)
   const content = `import ${camelName} from './src/${componentType === 'tsx' ? componentName : componentName + '.' + componentType}'
 import { App } from 'vue'
-
+${componentType === 'vue' ? `\n${camelName}.name = '${prefix}-${componentName}'\n` : ''}
 ${camelName}.install = (app: App): void => {
   // 注册组件
-  app.component('${camelName}', ${camelName})
+  app.component(${camelName}.name, ${camelName})
 }
 
 export default ${camelName}
