@@ -44,6 +44,10 @@
     "example/*"
   ],
   "dependencies": {
+    "@demo-ui-lib/demo-ui-lib": "workspace:*",
+    "@demo-ui-lib/docs": "workspace:./docs",
+    "@demo-ui-lib/cli": "workspace:./cli",
+    "@demo-ui-lib/example": "workspace:./example",
     "vue": "^3.2.41"
   },
   "devDependencies": {
