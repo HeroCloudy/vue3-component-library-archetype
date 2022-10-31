@@ -1,17 +1,12 @@
 import { defineComponent } from 'vue'
 import { config } from '../../../config'
+import { fooProps } from './types'
 
 const NAME = `${config.componentNamePrefix}-foo`
 
 export default defineComponent({
   name: NAME,
-  props: {
-    msg: {
-      type: String,
-      required: false,
-      default: ''
-    }
-  },
+  props: fooProps,
   setup (props, context) {
     console.log(props, context)
     const onBtnClick = () => {

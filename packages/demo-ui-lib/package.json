@@ -4,7 +4,7 @@
   "description": "组件库",
   "main": "index.ts",
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build"
+    "build": "rimraf ../../lib && vue-tsc --noEmit && vite build"
   },
   "keywords": [],
   "author": "程序员优雅哥",
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue-jsx": "^2.1.0",
+    "rimraf": "^3.0.2",
     "vite-plugin-dts": "^1.6.6"
   }
 }

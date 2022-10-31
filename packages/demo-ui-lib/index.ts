@@ -1,4 +1,4 @@
-import { App } from 'vue'
+import { App, Plugin } from 'vue'
 import Foo from '@demo-ui-lib/foo'
 // import component end
 import '../scss/index.scss'
@@ -8,12 +8,12 @@ const components = [
 ] // components
 
 // 全局动态添加组件
-const install = (app: App): void => {
-  components.forEach(component => {
-    app.component(component.name, component)
-  })
+const lib: Plugin = {
+  install (app: App) {
+    components.forEach(component => {
+      app.component(component.name, component)
+    })
+  }
 }
 
-export default {
-  install
-}
+export default lib
