@@ -1,12 +1,13 @@
 {
   "name": "vue3-component-library-archetype",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Vue3组件库脚手架",
   "author": "程序员优雅哥",
   "private": false,
   "type": "module",
   "main": "./lib/demo-ui-lib.umd.js",
   "module": "./lib/demo-ui-lib.es.js",
+  "types": "./lib/demo-ui-lib/index.d.ts",
   "files": [
     "./lib",
     "package.json",
