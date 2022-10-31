@@ -13,7 +13,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue-jsx": "^2.1.0",
     "sass": "^1.55.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-setup-extend": "^0.4.0"

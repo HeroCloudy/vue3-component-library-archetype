@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vitejs/plugin-vue-jsx": "^2.1.0",
     "vitepress": "1.0.0-alpha.26"
   },
   "dependencies": {
