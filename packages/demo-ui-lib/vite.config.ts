@@ -9,8 +9,8 @@ export default defineConfig({
     vue(),
     VueJsx(),
     viteDts({
-      insertTypesEntry: true,
-      staticImport: true
+      // insertTypesEntry: true,
+      // staticImport: true
     })
   ],
   build: {
