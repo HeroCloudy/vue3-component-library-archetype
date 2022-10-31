@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": true,
+    "baseUrl": "."
   },
   "include": ["../**/*.ts", "../**/*.d.ts", "../**/*.tsx", "../**/*.vue"],
   "exclude": ["../**/node_modules/"]

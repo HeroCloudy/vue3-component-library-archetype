@@ -1,14 +1,8 @@
-import { App, Plugin } from 'vue'
+import { App } from 'vue'
 import Foo from './src'
 
-export const FooPlugin: Plugin = {
-  install (app: App) {
-    app.component(Foo.name, Foo)
-  }
+Foo.install = (app: App) => {
+  app.component(Foo.name, Foo)
 }
 
 export default Foo
-
-export {
-  Foo
-}
