@@ -1,8 +1,7 @@
 import { defineComponent } from 'vue'
-import { config } from '../../../config'
 import { fooProps } from './types'
 
-const NAME = `${config.componentNamePrefix}-foo`
+const NAME = 'yyg-foo'
 
 export default defineComponent({
   name: NAME,
