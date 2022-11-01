@@ -1,5 +1,5 @@
 {
-  "name": "@demo-ui-lib/demo-ui-lib",
+  "name": "@{{libraryName}}/{{libraryName}}",
   "version": "1.0.0",
   "description": "组件库",
   "main": "index.ts",
@@ -7,10 +7,10 @@
     "build": "rimraf ../../lib && vue-tsc --noEmit && vite build"
   },
   "keywords": [],
-  "author": "程序员优雅哥",
+  "author": "{{author}}",
   "license": "ISC",
   "dependencies": {
-    "@demo-ui-lib/foo": "workspace:^1.0.0"
+    "@{{libraryName}}/foo": "workspace:^1.0.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",

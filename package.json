@@ -1,13 +1,13 @@
 {
-  "name": "vue3-component-library-archetype",
+  "name": "{{libraryName}}",
   "version": "0.1.0",
-  "description": "Vue3组件库脚手架",
-  "author": "程序员优雅哥",
+  "description": "{{description}}",
+  "author": "{{author}}",
   "private": false,
   "type": "module",
-  "main": "./lib/demo-ui-lib.umd.js",
-  "module": "./lib/demo-ui-lib.es.js",
-  "types": "./lib/demo-ui-lib/index.d.ts",
+  "main": "./lib/{{libraryName}}.umd.js",
+  "module": "./lib/{{libraryName}}.es.js",
+  "types": "./lib/{{libraryName}}/index.d.ts",
   "files": [
     "./lib",
     "package.json",
@@ -15,8 +15,8 @@
   ],
   "exports": {
     ".": {
-      "require": "./lib/demo-ui-lib.umd.js",
-      "import": "./lib/demo-ui-lib.es.js"
+      "require": "./lib/{{libraryName}}.umd.js",
+      "import": "./lib/{{libraryName}}.es.js"
     }
   },
   "scripts": {
@@ -27,7 +27,7 @@
     "build:uat": "pnpm run -C example build:uat",
     "build:prod": "pnpm run -C example build:prod",
     "preview:example": "pnpm run -C example preview",
-    "build:lib": "pnpm run -C packages/demo-ui-lib build",
+    "build:lib": "pnpm run -C packages/{{libraryName}} build",
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
     "docs:preview": "pnpm run -C docs serve",
@@ -44,10 +44,10 @@
     "example/*"
   ],
   "dependencies": {
-    "@demo-ui-lib/demo-ui-lib": "workspace:*",
-    "@demo-ui-lib/docs": "workspace:./docs",
-    "@demo-ui-lib/cli": "workspace:./cli",
-    "@demo-ui-lib/example": "workspace:./example",
+    "@{{libraryName}}/{{libraryName}}": "workspace:*",
+    "@{{libraryName}}/docs": "workspace:./docs",
+    "@{{libraryName}}/cli": "workspace:./cli",
+    "@{{libraryName}}/example": "workspace:./example",
     "vue": "^3.2.41"
   },
   "devDependencies": {

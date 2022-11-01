@@ -16,8 +16,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, './index.ts'),
-      name: 'demo-ui-lib',
-      fileName: format => `demo-ui-lib.${format}.js`
+      name: '{{libraryName}}',
+      fileName: format => `{{libraryName}}.${format}.js`
     },
     outDir: path.resolve(__dirname, '../../lib'),
     rollupOptions: {

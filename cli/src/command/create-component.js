@@ -16,7 +16,7 @@ import {
 import shelljs from 'shelljs'
 
 // 组件库名称
-const componentLibName = 'demo-ui-lib'
+const componentLibName = '{{libraryName}}'
 
 const createQuestions = [
   {

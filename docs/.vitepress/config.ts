@@ -25,14 +25,14 @@ const sidebar: DefaultTheme.Sidebar = {
 }
 
 export default defineConfig({
-  title: '浏览器标题',
-  description: '浏览器描述',
+  title: '{{libraryName}}',
+  description: '{{description}}',
   lang: 'cn-ZH',
   base: '/',
   lastUpdated: true,
   themeConfig: {
     logo: '/logo.png',
-    siteTitle: '组件库标题',
+    siteTitle: '{{libraryName}} {{description}}',
     outline: 3,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }

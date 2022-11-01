@@ -3,12 +3,12 @@ import './style.css'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import DemoUiLib from '@demo-ui-lib/demo-ui-lib'
+import {{libraryNameCamel}} from '@{{libraryName}}/{{libraryName}}'
 
 const env = import.meta.env
 console.log(env)
 
 const app = createApp(App)
 app.use(ElementPlus)
-app.use(DemoUiLib)
+app.use({{libraryNameCamel}})
 app.mount('#app')

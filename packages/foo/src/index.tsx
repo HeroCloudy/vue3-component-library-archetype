@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { fooProps } from './types'
 
-const NAME = 'yyg-foo'
+const NAME = '{{componentPrefix}}-foo'
 
 export default defineComponent({
   name: NAME,
@@ -13,7 +13,7 @@ export default defineComponent({
     }
     return () => (
       <div class={NAME}>
-        <h1>YYG-Admin-UI Demo</h1>
+        <h1>{{ libraryName }} Demo</h1>
         <p class={NAME + '__description'}>{ props.msg }</p>
         <el-button type='primary' onClick={onBtnClick}>点击我</el-button>
       </div>

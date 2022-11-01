@@ -1,4 +1,4 @@
-export const prefix = 'yyg'
+export const prefix = '{{componentPrefix}}'
 
 export const convertFirstUpper = (str: string) => {
   return `${str.substring(0, 1).toUpperCase()}${str.substring(1)}`

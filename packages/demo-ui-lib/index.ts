@@ -1,5 +1,5 @@
 import { App } from 'vue'
-import Foo from '@demo-ui-lib/foo'
+import Foo from '@{{libraryName}}/foo'
 // import component end
 import '../scss/index.scss'
 

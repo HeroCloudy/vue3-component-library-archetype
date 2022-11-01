@@ -6,12 +6,12 @@ titleTemplate: 选项卡描述
 editLink: true
 lastUpdated: true
 hero:
-  name: 组件库名称
-  text: 组件库中文名称
+  name: {{libraryName}}
+  text: {{description}}
   tagline: 组件库描述 / SLOGAN
   image:
     src: /logo.png
-    alt: YYG Admin UI
+    alt: {{libraryName}}
   actions:
     - theme: brand
       text: 快速开始

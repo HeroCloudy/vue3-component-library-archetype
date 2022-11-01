@@ -1,5 +1,5 @@
 <template>
-  <yyg-foo :msg="msg"></yyg-foo>
+  <{{componentPrefix}}-foo :msg="msg"></{{componentPrefix}}-foo>
 </template>
 
 <script lang="ts" setup>

@@ -1,4 +1,6 @@
-# vue3-component-library-archetype
+# {{libraryName}}
+
+{{description}}
 
 基于 Vue3 + Vite 独立组件库脚手架，可在此基础上定制化开发企业级或个人的组件库。
 
@@ -20,12 +22,6 @@
 - ESLint
 
 ## 使用说明
-
-#### 克隆代码到本地：
-
-```shell
-git clone git@github.com:HeroCloudy/vue3-component-library-archetype.git
-```
 
 #### 安装依赖
 

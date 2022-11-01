@@ -1,11 +1,11 @@
 {
-  "name": "@demo-ui-lib/cli",
+  "name": "@{{libraryName}}/cli",
   "version": "1.0.0",
   "description": "组件库命令行工具",
   "scripts": {
     "gen": "ts-node ./index.ts create"
   },
-  "author": "程序员优雅哥",
+  "author": "{{author}}",
   "license": "ISC",
   "devDependencies": {
     "chalk": "4.1.2",
