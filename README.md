@@ -19,6 +19,88 @@
 - Vitepress 1.0
 - ESLint
 
+## 使用说明
+
+#### 克隆代码到本地：
+
+```shell
+git clone git@github.com:HeroCloudy/vue3-component-library-archetype.git
+```
+
+#### 安装依赖
+
+如果您没有安装 pnpm，需要先按照 pnpm
+
+```shell
+npm install -g pnpm
+```
+
+安装依赖：
+
+```shell
+pnpm i
+```
+
+#### 本地开发
+
+在 example 中开发组件，使用命令：
+
+```shell
+pnpm run dev:dev
+```
+
+访问地址为 http://localhost:3000/
+
+在组件库文档中开发组件，使用命令：
+
+```shell
+pnpm run docs:dev
+```
+
+访问地址为 http://localhost:3100/
+
+#### 创建新组件
+
+```shell
+pnpm run gen:component
+```
+按照提示输入组件名称、组件中文名称、组件类型（.tsx 或 .vue）
+
+#### 构建文档
+```shell
+pnpm run build:docs
+```
+打包构建后的文件位于 _docs/.vitepress/dist_ 目录
+
+#### 构建 example
+```shell
+pnpm run build:dev
+```
+打包构建后的文件位于 _dist_ 目录
+
+#### 发布组件库
+
+组件库打包：
+
+```shell
+pnpm run build:lib
+```
+
+在发布 npm 前可以在本地私服进行测试。
+启动本地私服：
+```shell
+pnpm run start:verdaccio
+```
+启动成功后在浏览器中访问 http://localhost:4873/
+
+如果初次使用，需要创建用户。
+
+发布组件库到本地私服中：
+```shell
+pnpm run pub:local
+```
+
+
 ## 组件库命令说明
 
 组件库的命令入口均在根目录的 _package.json_ 中的 _scripts_ 中。由于采用了 monorepo 的方式，大多命令的实现都在各自的模块中。
