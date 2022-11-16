@@ -1,0 +1,12 @@
+@import "../tools";
+@import "../acss/mp";
+@import "../base/var.module";
+
+@include b('yyg-foo') {
+  color: $primary-color;
+
+  @include e('description') {
+    color: #333333;
+    @extend .mv-20;
+  }
+}

@@ -53,7 +53,9 @@ importers:
 
   cli:
     specifiers:
+      '@types/inquirer': 8.2.5
       '@types/node': ^18.11.7
+      '@types/shelljs': ^0.8.11
       chalk: 4.1.2
       commander: ^9.4.1
       inquirer: 8.2.5
@@ -64,6 +66,8 @@ importers:
     dependencies:
       '@types/node': 18.11.7
     devDependencies:
+      '@types/inquirer': 8.2.5
+      '@types/shelljs': 0.8.11
       chalk: 4.1.2
       commander: 9.4.1
       inquirer: 8.2.5
@@ -104,17 +108,28 @@ importers:
 
   packages/demo-ui-lib:
     specifiers:
+      '@demo-ui-lib/demo-a': workspace:^1.0.0
       '@demo-ui-lib/foo': workspace:^1.0.0
       rimraf: ^3.0.2
       vite-plugin-dts: ^1.6.6
     dependencies:
+      '@demo-ui-lib/demo-a': link:../demo-a
       '@demo-ui-lib/foo': link:../foo
     devDependencies:
       rimraf: 3.0.2
       vite-plugin-dts: 1.6.6
 
   packages/foo:
-    specifiers: {}
+    specifiers:
+      '@demo-ui-lib/utils': workspace:^1.0.0
+    dependencies:
+      '@demo-ui-lib/utils': link:../utils
+
+  packages/utils:
+    specifiers:
+      mitt: 1.1.3
+    dependencies:
+      mitt: 1.1.3
 
 packages:
 
@@ -847,6 +862,19 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
+  /@types/glob/8.0.0:
+    resolution: {integrity: sha512-l6NQsDDyQUVeoTynNpC9uRvCUint/gSUXQA2euwmTuWGvPY5LSDUu6tkCtJB2SvGQlJQzLaKqcGZP4//7EDveA==}
+    dependencies:
+      '@types/minimatch': 5.1.2
+      '@types/node': 18.11.7
+    dev: true
+
+  /@types/inquirer/8.2.5:
+    resolution: {integrity: sha512-QXlzybid60YtAwfgG3cpykptRYUx2KomzNutMlWsQC64J/WG/gQSl+P4w7A21sGN0VIxRVava4rgnT7FQmFCdg==}
+    dependencies:
+      '@types/through': 0.0.30
+    dev: true
+
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
@@ -869,6 +897,10 @@ packages:
     resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
     dev: false
 
+  /@types/minimatch/5.1.2:
+    resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
+    dev: true
+
   /@types/node/12.20.24:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
@@ -880,8 +912,21 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
+  /@types/shelljs/0.8.11:
+    resolution: {integrity: sha512-x9yaMvEh5BEaZKeVQC4vp3l+QoFj3BXcd4aYfuKSzIIyihjdVARAadYy3SMNIz0WCCdS2vB9JL/U6GQk5PaxQw==}
+    dependencies:
+      '@types/glob': 8.0.0
+      '@types/node': 18.11.7
+    dev: true
+
   /@types/svgo/2.6.4:
     resolution: {integrity: sha512-l4cmyPEckf8moNYHdJ+4wkHvFxjyW6ulm9l4YGaOxeyBWPhBOT0gvni1InpFPdzx1dKf/2s62qGITwxNWnPQng==}
+    dependencies:
+      '@types/node': 18.11.7
+    dev: true
+
+  /@types/through/0.0.30:
+    resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
       '@types/node': 18.11.7
     dev: true
@@ -4749,6 +4794,10 @@ packages:
   /minimist/1.2.7:
     resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
     dev: true
+
+  /mitt/1.1.3:
+    resolution: {integrity: sha512-mUDCnVNsAi+eD6qA0HkRkwYczbLHJ49z17BGe2PYRhZL4wpZUFZGJHU7/5tmvohoma+Hdn0Vh/oJTiPEmgSruA==}
+    dev: false
 
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
