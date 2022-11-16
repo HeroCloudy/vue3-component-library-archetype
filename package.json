@@ -33,7 +33,8 @@
     "docs:preview": "pnpm run -C docs serve",
     "gen:component": "pnpm run -C cli gen",
     "start:verdaccio": "pnpm verdaccio",
-    "pub:local": "pnpm publish --registry http://localhost:4873/"
+    "pub:local": "pnpm publish --registry http://localhost:4873/",
+    "lint": "eslint \"{cli,packages,docs,example}/**/*.{js,ts,vue,jsx,tsx}\" --fix"
   },
   "keywords": [],
   "license": "ISC",
@@ -47,17 +48,21 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "@types/node": "^18.11.7",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^2.1.0",
-    "eslint": "^8.0.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.26.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.6.0",
+    "lint-staged": "^13.0.3",
     "sass": "^1.55.0",
     "typescript": "^4.8.4",
     "verdaccio": "^5.15.4",
@@ -68,5 +73,15 @@
     "@{{libraryName}}/docs": "workspace:./docs",
     "@{{libraryName}}/cli": "workspace:./cli",
     "@{{libraryName}}/example": "workspace:./example"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,vue}": [
+      "pnpm run lint"
+    ]
   }
 }

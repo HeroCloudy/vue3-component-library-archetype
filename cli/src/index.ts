@@ -1,9 +1,9 @@
 import { program } from 'commander'
-import { g } from './util/log-utils'
 import { createComponent } from './command/create-component'
+import { c } from './util/log-utils'
 
 export const mainEntry = () => {
-  g('hello cli! made by 程序员优雅哥', false)
+  c('yyg-demo-ui cli 工具')
 
   program.version(require('../package').version)
     .usage('<command> [arguments]')
@@ -11,9 +11,7 @@ export const mainEntry = () => {
   program.command('create')
     .description('create a new component')
     .alias('c')
-    .action(() => {
-      createComponent()
-    })
+    .action(createComponent)
 
   program.parse(process.argv)
 
