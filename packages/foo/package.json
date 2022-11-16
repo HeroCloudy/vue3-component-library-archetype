@@ -10,6 +10,6 @@
   "author": "{{author}}",
   "license": "ISC",
   "dependencies": {
-    "@demo-ui-lib/utils": "workspace:^1.0.0"
+    "@{{libraryName}}/utils": "workspace:^1.0.0"
   }
 }
