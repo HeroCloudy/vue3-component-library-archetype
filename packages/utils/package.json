@@ -1,5 +1,5 @@
 {
-  "name": "@demo-ui-lib/utils",
+  "name": "@{{libraryName}}/utils",
   "version": "1.0.0",
   "description": "通用工具函数",
   "main": "index.ts",
