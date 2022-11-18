@@ -57,7 +57,7 @@ export const typesTemplate = (lowCamelName: string, upCamelName: string): string
   return `import { ExtractPropTypes } from 'vue'
 
 export const ${lowCamelName}Props = {
-}
+} as const
 
 export type ${upCamelName}Props = ExtractPropTypes<typeof ${lowCamelName}Props>
 `
@@ -89,7 +89,7 @@ export const scssTemplate = (lineNameWithPrefix: string): string => {
 @import "../acss/mp";
 @import "../base/var.module";
 
-.${lineNameWithPrefix} {
+@include b('${lineNameWithPrefix}') {
 }
 `
 }
