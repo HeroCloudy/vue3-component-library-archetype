@@ -51,7 +51,7 @@
     "@commitlint/cli": "^17.4.3",
     "@commitlint/config-conventional": "^17.4.3",
     "@{{libraryName}}/cli": "workspace:./cli",
-    "@{{libraryName}}/{{libraryName}}": "^workspace:1.0.0",
+    "@{{libraryName}}/{{libraryName}}": "workspace:^1.0.0",
     "@{{libraryName}}/docs": "workspace:./docs",
     "@{{libraryName}}/example": "workspace:./example",
     "@types/node": "^18.13.0",
