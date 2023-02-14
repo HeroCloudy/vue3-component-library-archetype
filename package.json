@@ -1,13 +1,13 @@
 {
-  "name": "{{libraryName}}",
+  "name": "vue3-component-library-archetype",
   "version": "0.1.0",
-  "description": "{{description}}",
-  "author": "{{author}}",
+  "description": "Vue3组件库脚手架",
+  "author": "程序员优雅哥",
   "private": false,
   "type": "module",
-  "main": "./lib/{{libraryName}}.umd.js",
-  "module": "./lib/{{libraryName}}.es.js",
-  "types": "./lib/{{libraryName}}/index.d.ts",
+  "main": "./lib/demo-ui-lib.umd.js",
+  "module": "./lib/demo-ui-lib.es.js",
+  "types": "./lib/demo-ui-lib/index.d.ts",
   "files": [
     "./lib",
     "package.json",
@@ -15,8 +15,8 @@
   ],
   "exports": {
     ".": {
-      "require": "./lib/{{libraryName}}.umd.js",
-      "import": "./lib/{{libraryName}}.es.js"
+      "require": "./lib/demo-ui-lib.umd.js",
+      "import": "./lib/demo-ui-lib.es.js"
     }
   },
   "scripts": {
@@ -27,7 +27,7 @@
     "build:uat": "pnpm run -C example build:uat",
     "build:prod": "pnpm run -C example build:prod",
     "preview:example": "pnpm run -C example preview",
-    "build:lib": "pnpm run -C packages/{{libraryName}} build",
+    "build:lib": "pnpm run -C packages/demo-ui-lib build",
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
     "docs:preview": "pnpm run -C docs serve",
@@ -45,34 +45,34 @@
     "example/*"
   ],
   "dependencies": {
-    "vue": "^3.2.41"
+    "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.2.0",
-    "@commitlint/config-conventional": "^17.2.0",
-    "@types/node": "^18.11.7",
-    "@typescript-eslint/eslint-plugin": "^5.41.0",
-    "@typescript-eslint/parser": "^5.41.0",
+    "@commitlint/cli": "^17.4.3",
+    "@commitlint/config-conventional": "^17.4.3",
+    "@demo-ui-lib/cli": "workspace:^1.0.0",
+    "@demo-ui-lib/demo-ui-lib": "workspace:1.0.0",
+    "@demo-ui-lib/docs": "workspace:^1.0.0",
+    "@demo-ui-lib/example": "workspace:^0.0.1",
+    "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
     "@vitejs/plugin-vue": "^3.2.0",
-    "@vitejs/plugin-vue-jsx": "^2.1.0",
+    "@vitejs/plugin-vue-jsx": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.26.0",
+    "eslint": "^8.34.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-vue": "^9.6.0",
-    "lint-staged": "^13.0.3",
-    "sass": "^1.55.0",
-    "typescript": "^4.8.4",
-    "verdaccio": "^5.15.4",
-    "vite": "^3.2.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.9.0",
+    "lint-staged": "^13.1.2",
+    "sass": "^1.58.1",
+    "typescript": "^4.9.5",
+    "verdaccio": "^5.20.1",
+    "vite": "^3.2.5",
     "vite-plugin-eslint": "^1.8.1",
-    "vue-tsc": "^1.0.9",
-    "@{{libraryName}}/{{libraryName}}": "workspace:*",
-    "@{{libraryName}}/docs": "workspace:./docs",
-    "@{{libraryName}}/cli": "workspace:./cli",
-    "@{{libraryName}}/example": "workspace:./example"
+    "vue-tsc": "^1.0.24"
   },
   "config": {
     "commitizen": {
