@@ -2,15 +2,18 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
 import VueJsx from '@vitejs/plugin-vue-jsx'
-import viteDts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
+  root: './',
   plugins: [
     vue(),
     VueJsx(),
-    viteDts({
+    dts({
       insertTypesEntry: true,
-      staticImport: true
+      staticImport: true,
+      copyDtsFiles: true,
+      skipDiagnostics: true
     })
   ],
   build: {
