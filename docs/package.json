@@ -16,9 +16,9 @@
     "vitepress": "1.0.0-alpha.26"
   },
   "dependencies": {
-    "@demo-ui-lib/demo-ui-lib": "workspace:^1.0.0",
-    "@vitepress-demo-preview/component": "^2.0.2",
-    "@vitepress-demo-preview/plugin": "^1.1.5",
-    "element-plus": "^2.2.21"
+    "@demo-ui-lib/demo-ui-lib": "workspace:^",
+    "@vitepress-demo-preview/component": "^2.3.0",
+    "@vitepress-demo-preview/plugin": "^1.1.11",
+    "element-plus": "^2.3.6"
   }
 }
