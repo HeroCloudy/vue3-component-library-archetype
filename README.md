@@ -15,7 +15,7 @@
 
 ## 组件库脚手架技术栈
 
-- Vite 3
+- Vite 4
 - Vue 3
 - TypeScript
 - Vitepress 1.0
